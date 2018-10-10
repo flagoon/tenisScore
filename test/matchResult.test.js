@@ -1,6 +1,6 @@
 const assert = require('chai').assert;
 const { MatchResult } = require('../src/MatchResult');
-const { TennisGame } = require('../src/TennisGame');
+const { TennisGame } = require('../src/GameTypes/TennisGame');
 
 describe('Tenis score', () => {
 
