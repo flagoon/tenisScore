@@ -1,29 +1,29 @@
 const decideWinningPlayer = (scoreOne, scoreTwo) => {
     const diff = scoreOne - scoreTwo;
     if (diff > 0) {
-        return "player1";
+        return 'player1';
     } else if (diff < 0) {
-        return "player2";
+        return 'player2';
     } else {
-        return "none";
+        return 'none';
     }
 };
 
 const winningMessage = player => `Win for ${player}`;
 const advantageMessage = player => `Advantage ${player}`;
 const decideTieType = (playerScore, scoreNames) => {
-    return playerScore > 3 ? "Deuce" : `${scoreNames[playerScore]}-All`;
+    return playerScore > 3 ? 'Deuce' : `${scoreNames[playerScore]}-All`;
 };
 
 const tennisScore = (playerOneScore, playerTwoScore) => {
-    const scoreNames = ["Love", "Fifteen", "Thirty", "Forty"];
+    const scoreNames = ['Love', 'Fifteen', 'Thirty', 'Forty'];
 
     const playerInAdvantage = decideWinningPlayer(
         playerOneScore,
         playerTwoScore
     );
 
-    if (playerInAdvantage === "none") {
+    if (playerInAdvantage === 'none') {
         return decideTieType(playerOneScore, scoreNames);
     } else if (playerOneScore >= 4 || playerTwoScore >= 4) {
         return Math.abs(playerOneScore - playerTwoScore) >= 2
