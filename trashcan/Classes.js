@@ -42,18 +42,6 @@ class MatchResult {
     }
 }
 
-class GameType {
-    constructor(type) {
-        if (type === 'tennis') {
-            this._gameType = new TennisGame();
-        }
-    }
-
-    get gameType() {
-        return this._gameType;
-    }
-}
-
 class TennisGame {
     get winningBreakPoint() {
         return this._winningBreakPoint;
@@ -77,5 +65,5 @@ class TennisGame {
 
 module.exports = {
     MatchResult,
-    GameType
+    TennisGame
 };
