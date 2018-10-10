@@ -1,5 +1,5 @@
-const decideAdvantage = matchScore => {
-    const diff = matchScore[1] - matchScore[2];
+const decideAdvantage = (scoreOne, scoreTwo) => {
+    const diff = scoreOne - scoreTwo;
     if (diff > 0) {
         return 1;
     } else if (diff < 0) {
@@ -10,11 +10,6 @@ const decideAdvantage = matchScore => {
 };
 
 const tennisScore = (playerOneScore, playerTwoScore) => {
-    const matchScore = {
-        "1": playerOneScore,
-        "2": playerTwoScore
-    };
-
     const scoreNames = {
         "0": "Love",
         "1": "Fifteen",
@@ -24,7 +19,7 @@ const tennisScore = (playerOneScore, playerTwoScore) => {
 
     const absoluteDifference = Math.abs(playerOneScore - playerTwoScore);
 
-    const advantage = decideAdvantage(matchScore);
+    const advantage = decideAdvantage(playerOneScore, playerTwoScore);
 
     if (advantage === 0) {
         return playerOneScore > 3
