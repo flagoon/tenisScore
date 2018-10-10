@@ -1,11 +1,11 @@
 const decideWinningPlayer = (scoreOne, scoreTwo) => {
     const diff = scoreOne - scoreTwo;
     if (diff > 0) {
-        return 1;
+        return "player1";
     } else if (diff < 0) {
-        return 2;
+        return "player2";
     } else {
-        return 0;
+        return "none";
     }
 };
 
@@ -17,14 +17,14 @@ const tennisScore = (playerOneScore, playerTwoScore) => {
         playerTwoScore
     );
 
-    if (!playerInAdvantage) {
+    if (playerInAdvantage === "none") {
         return playerOneScore > 3
             ? "Deuce"
             : `${scoreNames[playerOneScore]}-All`;
     } else if (playerOneScore >= 4 || playerTwoScore >= 4) {
         return Math.abs(playerOneScore - playerTwoScore) >= 2
-            ? `Win for player${playerInAdvantage}`
-            : `Advantage player${playerInAdvantage}`;
+            ? `Win for ${playerInAdvantage}`
+            : `Advantage ${playerInAdvantage}`;
     } else {
         return `${scoreNames[playerOneScore]}-${scoreNames[playerTwoScore]}`;
     }
