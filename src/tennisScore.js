@@ -15,26 +15,29 @@ const tennisScore = (playerOneScore, playerTwoScore) => {
         "2": playerTwoScore
     };
 
-    const advantage = decideAdvantage(matchScore);
-
     const scoreNames = {
         "0": "Love",
         "1": "Fifteen",
         "2": "Thirty",
         "3": "Forty"
     };
+
+    const absoluteDifference = Math.abs(playerOneScore - playerTwoScore);
+
+    const advantage = decideAdvantage(matchScore);
+
     if (advantage === 0) {
         return playerOneScore > 3
             ? "Deuce"
             : `${scoreNames[playerOneScore]}-All`;
     } else if (playerOneScore >= 4 || playerTwoScore >= 4) {
-        if (Math.abs(playerOneScore - playerTwoScore) >= 2) {
+        if (absoluteDifference >= 2) {
             if (playerOneScore > playerTwoScore) {
                 return "Win for player1";
             } else {
                 return "Win for player2";
             }
-        } else if (Math.abs(playerOneScore - playerTwoScore) === 1) {
+        } else if (absoluteDifference === 1) {
             if (playerOneScore > playerTwoScore) {
                 return "Advantage player1";
             } else {
