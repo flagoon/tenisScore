@@ -43,6 +43,18 @@ class MatchResult {
 }
 
 class GameType {
+    constructor(type) {
+        if (type === 'tennis') {
+            this._gameType = new TennisGame();
+        }
+    }
+
+    get gameType() {
+        return this._gameType;
+    }
+}
+
+class TennisGame {
     get winningBreakPoint() {
         return this._winningBreakPoint;
     }
@@ -51,12 +63,10 @@ class GameType {
         return this._pointsAdvantage;
     }
 
-    constructor(gameName) {
-        if (gameName === 'tennis') {
-            this._scoreName = ['Love', 'Fifteen', 'Thirty', 'Forty'];
-            this._winningBreakPoint = 4;
-            this._pointsAdvantage = 2;
-        }
+    constructor() {
+        this._scoreName = ['Love', 'Fifteen', 'Thirty', 'Forty'];
+        this._winningBreakPoint = 4;
+        this._pointsAdvantage = 2;
     }
 
     get scoreName() {
